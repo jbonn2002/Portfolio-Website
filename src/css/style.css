@@ -2818,10 +2818,10 @@ input, select, textarea {
 						text-decoration: none;
 					}
 
-						#header > nav ul li a.active {
+						/* #header > nav ul li a.active {
 							background: var(--color-white);
 							color: var(--color-black) !important;
-						}
+						} */
 
 						#header > nav ul li a.active:hover{
 							color: var(--color-black) !important;
