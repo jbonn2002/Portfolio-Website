@@ -2823,9 +2823,9 @@ input, select, textarea {
 							color: var(--color-black) !important;
 						} */
 
-						#header > nav ul li a.active:hover{
+						/* #header > nav ul li a.active:hover{
 							color: var(--color-black) !important;
-						}
+						} */
 
 						#header > nav ul li a:hover {
 							color: var(--color-coral) !important;
