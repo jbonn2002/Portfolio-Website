@@ -2,32 +2,35 @@ import '/src/css/style.css'
 
 import * as THREE from 'three';
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+let camera, scene, renderer;
 
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'),
-    antialias: true
-});
-renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.outputEncoding = THREE.sRGBEncoding;
+let torus;
 
-const boxGeometry = new THREE.SphereGeometry( 3, 30, 30 );
-const boxMaterial = new THREE.MeshBasicMaterial( { color: 0xFF8552, wireframe: true} );
-const cube = new THREE.Mesh( boxGeometry, boxMaterial );
-scene.add( cube );
+init();
+animate();
 
-camera.position.z = 5;
+function init(){
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
+  renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector('#bg'),
+      antialias: true
+  });
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.outputEncoding = THREE.sRGBEncoding;
 
-function animate() {
-	requestAnimationFrame( animate );
+  const torusGeometry = new THREE.TorusKnotGeometry( 5, 3, 300, 20 );
+  const torusMaterial = new THREE.PointsMaterial( { 
+    color: 0xFF8552, 
+    size: 0.02
+  } );
+  torus = new THREE.Points( torusGeometry, torusMaterial );
+  scene.add( torus );
 
+  camera.position.z = 5;
 
-	cube.rotation.x += 0.001;
-	cube.rotation.y += 0.005;
-
-	renderer.render( scene, camera );
+  window.addEventListener('resize', onWindowResize, false)
 }
 
 function onWindowResize() {
@@ -38,7 +41,17 @@ function onWindowResize() {
   
   }
   
+  function animate() {
+    requestAnimationFrame( animate );
   
-window.addEventListener('resize', onWindowResize, false)
+    render();
+  }
+  
+  function render() {
+    
+    torus.rotation.x += 0.001;
+    torus.rotation.y += 0.001;
+    
+    renderer.render( scene, camera );
+  }
 
-animate();
