@@ -2818,14 +2818,14 @@ input, select, textarea {
 						text-decoration: none;
 					}
 
-						/* #header > nav ul li a.active {
+						#header > nav ul li a.active {
 							background: var(--color-white);
 							color: var(--color-black) !important;
-						} */
+						}
 
-						/* #header > nav ul li a.active:hover{
+						#header > nav ul li a.active:hover{
 							color: var(--color-black) !important;
-						} */
+						}
 
 						#header > nav ul li a:hover {
 							color: var(--color-coral) !important;
@@ -3207,6 +3207,35 @@ input, select, textarea {
 		width: 600px;
 	}
 }
+
+@media screen and (max-width: 630px){
+	#header > header{
+		display: none;
+	}
+
+	#nav > ul{
+		display: block; 
+	}
+
+	#header{
+		transform: translate(25px);
+	}
+
+	.icons{
+		font-size: 10px;
+	}
+
+	#header.open{
+		height: 300px;
+		width: 130px;
+	}
+}
+
+
+
+
+
+
 
 
 	@media screen and (max-width: 480px) {
