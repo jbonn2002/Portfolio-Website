@@ -30,7 +30,7 @@ const sideItemFour = document.querySelector('.side-item-four')
 //Scroll effect code
 
 const options = {
-    rootMargin: "-220px 0px -355px 0px"
+    rootMargin: "-140px 0px -355px 0px"
 }
 
 const optionThree = {
